@@ -43,6 +43,3 @@ def do_over():
 gifrecipe_finder()
 
 
-# Problems breakdown:
-
-# make the else statement pop up only when there is NO recipe with said keyword
