@@ -9,17 +9,20 @@ page = feedparser.parse("https://www.reddit.com/r/GifRecipes/.rss")
 def gifrecipe_finder():
     os.system('clear')
     word = raw_input('\n What do you wanna cook? ')
+    search_term_found = False
     for i in page.entries:
-        while word in i.title or word in i.link:
+        if word in i.title or word in i.link:
             print '\n'
             print ' ' + i.title
             print ' ' + i.link
             print '\n'
-            break
+            search_term_found = True
 
-    if word not in i.title or word in i.link:
+    if not search_term_found:
         print '\n No {} recipes yet, I\'m afraid \n'.format(word)
-        do_over()
+
+    # Ask if user wants to continue.
+    do_over()
 
 
 
